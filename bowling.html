@@ -1,44 +1,47 @@
 <script>
 var testcases = new Array();
-testcases[0] = [10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10];
+testcases[0] = "10,10,10,10,10,10,10,10,10,10,10,10";
 // 300
-testcases[1] = [1, 2, 3, 4, 5, 5];
+testcases[1] = "1,2,3,4,5,5";
 // 20
-testcases[2] = [9, 1, 10, 8, 0, 2];
+testcases[2] = "9,1,10,8,0,2";
 // 48
-testcases[3] = [10, 0, 0, 9, 1, 0, 0, 8, 2, 0, 0, 7, 3, 0, 0, 6, 4, 0, 0];
+testcases[3] = "10,0,0,9,1,0,0,8,2,0,0,7,3,0,0,6,4,0,0";
 // 50
-testcases[4] = [10, 9, 1, 10, 7, 3, 10, 2, 8, 10, 5, 5, 10, 1, 9, 10];
+testcases[4] = "10,9,1,10,7,3,10,2,8,10,5,5,10,1,9,10";
 // 200
-testcases[5] = [5, 5, 8, 2, 6, 4, 7, 3, 7, 3, 9, 1, 5, 5, 8, 2, 9, 1, 9, 1, 10];
+testcases[5] = "5,5,8,2,6,4,7,3,7,3,9,1,5,5,8,2,9,1,9,1,10";
 // 178
-testcases[6] = [5, 0, 8, 0, 6, 0, 0, 7, 7, 0, 0, 9, 5, 0, 8, 0, 0, 9, 9, 0];
+testcases[6] = "5,0,8,0,6,0,0,7,7,0,0,9,5,0,8,0,0,9,9,0";
 // 73
-testcases[7] = [6, 2, 8, 0, 5, 1, 10, 7, 2];
+testcases[7] = "6,2,8,0,5,1,10,7,2";
 // 50
-testcases[8] = [6, 2, 8, 0, 5, 1, 10, 7, 2, 10, 6, 4];
+testcases[8] = "6,2,8,0,5,1,10,7,2,10,6,4";
 // 80
-testcases[9] = [6, 2, 8, 0, 5, 1, 10, 7, 2, 10, 6, 4, 3, 2];
+testcases[9] = "6,2,8,0,5,1,10,7,2,10,6,4,3,2";
 // 88
-testcases[10] = [6, 2, 8, 0, 5, 1, 10, 7, 2, 10, 6, 4, 3, 2, 4, 5, 5, 5, 8];
+testcases[10] = "6,2,8,0,5,1,10,7,2,10,6,4,3,2,4,5,5,5,8";
 // 115
-testcases[11] = [6, 2, 8, 0, 5, 1, 10, 7, 2, 10, 6, 4, 3, 2, 4, 5, 10, 10, 8];
+testcases[11] = "6,2,8,0,5,1,10,7,2,10,6,4,3,2,4,5,10,10,8";
 // 125
 
 testcases.forEach(scores);
 
-function scores(numbers) {
+function scores(string) {
+	numbers = string.split(',');
 	framesResult = new Array();
 
     frame = 0;
     pin = 1;
 
     // transform input into array of frames 
-    // each frame: [pin1, pin2]
-    numbers.forEach(function(i) {
+    // each frame: [pin1,pin2]
+    numbers.forEach(function(s) {
+    	i = parseInt(s);
+
     	if (pin == 1) {
     		if (i == 10) {
-    			framesResult.push([i, 0]);
+    			framesResult.push([i,0]);
     			frame++;
     		} else {
     			framesResult.push([i]);
