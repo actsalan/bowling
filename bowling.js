@@ -39,18 +39,18 @@ for (i = 0; i < framesResult.length && i < 10; i++) {
 			if (framesResult[i][0] == 10) {     // check present frame get a strike
 				// check next frame has pin2
 				if (framesResult[i+1].length == 1) {
-    				totalScore += framesResult[i+1][0];
-    			} else {
-    				totalScore += framesResult[i+1][0] + framesResult[i+1][1];
-    				// check next frame get a strike
-    				if (framesResult[i+1][0] == 10 && i+2 < framesResult.length) {
-    					// check next next frame has pin2
-    					if (framesResult[i+2].length == 1)
-		    				totalScore += framesResult[i+2][0];
-		    			else
-		    				totalScore += framesResult[i+2][0] + framesResult[i+2][1];
-    				}
-    			}
+    					totalScore += framesResult[i+1][0];
+				} else {
+					totalScore += framesResult[i+1][0] + framesResult[i+1][1];
+					// check next frame get a strike
+					if (framesResult[i+1][0] == 10 && i+2 < framesResult.length) {
+						// check next next frame has pin2
+						if (framesResult[i+2].length == 1)
+							totalScore += framesResult[i+2][0];
+						else
+							totalScore += framesResult[i+2][0] + framesResult[i+2][1];
+					}
+				}
 			} else if (score == 10) {            // check present frame get a spare
 				totalScore += framesResult[i+1][0];
 			}
